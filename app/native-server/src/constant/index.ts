@@ -8,7 +8,7 @@ export enum NATIVE_MESSAGE_TYPE {
   ERROR = 'error',
 }
 
-export const NATIVE_SERVER_PORT = 56889;
+export const NATIVE_SERVER_PORT = 12306;
 
 // Timeout constants (in milliseconds)
 export const TIMEOUTS = {
@@ -19,7 +19,7 @@ export const TIMEOUTS = {
 
 // Server configuration
 export const SERVER_CONFIG = {
-  HOST: '127.0.0.1',
+  HOST: '0.0.0.0',
   CORS_ORIGIN: true,
   LOGGER_ENABLED: false,
 } as const;

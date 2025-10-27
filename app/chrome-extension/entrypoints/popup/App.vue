@@ -218,7 +218,9 @@
           @click="showClearConfirmation = true"
         >
           <TrashIcon />
-          <span>{{ isClearingData ? getMessage('clearingStatus') : getMessage('clearAllDataButton') }}</span>
+          <span>{{
+            isClearingData ? getMessage('clearingStatus') : getMessage('clearAllDataButton')
+          }}</span>
         </button>
       </div>
 
@@ -307,7 +309,7 @@ const mcpConfigJson = computed(() => {
     mcpServers: {
       'streamable-mcp-server': {
         type: 'streamable-http',
-        url: `http://127.0.0.1:${port}/mcp`,
+        url: `http://0.0.0.0:${port}/mcp`,
       },
     },
   };
@@ -385,7 +387,9 @@ const getStatusClass = () => {
 const getStatusText = () => {
   if (nativeConnectionStatus.value === 'connected') {
     if (serverStatus.value.isRunning) {
-      return getMessage('serviceRunningStatus', [(serverStatus.value.port || 'Unknown').toString()]);
+      return getMessage('serviceRunningStatus', [
+        (serverStatus.value.port || 'Unknown').toString(),
+      ]);
     } else {
       return getMessage('connectedServiceNotStartedStatus');
     }
